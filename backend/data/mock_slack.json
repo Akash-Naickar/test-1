@@ -1,0 +1,26 @@
+[
+  {
+    "timestamp": "2023-11-10T09:15:00Z",
+    "user": "Dave (Junior Dev)",
+    "channel": "#dist-sys-payments",
+    "message": "Hey team, Gateway V2 is throwing random 503s. I added a quick retry loop to `process_payment` to stabilize the checkout flow. PR is up."
+  },
+  {
+    "timestamp": "2023-11-10T09:18:00Z",
+    "user": "Sarah (Staff Engineer)",
+    "channel": "#dist-sys-payments",
+    "message": "@Dave Wait, did you implement idempotency keys? V2 isn't safe to retry blindly. If the request times out on the return trip, we might double charge the customer."
+  },
+  {
+    "timestamp": "2023-11-10T09:20:00Z",
+    "user": "Dave (Junior Dev)",
+    "channel": "#dist-sys-payments",
+    "message": "Uhh, I just checked the return code. If it's not 200, I retry. Is that bad?"
+  },
+  {
+    "timestamp": "2023-11-10T09:22:00Z",
+    "user": "Sarah (Staff Engineer)",
+    "channel": "#dist-sys-payments",
+    "message": "YES. That's dangerous. The gateway documentation says 500s/timeouts can duplicate if you don't send a unique `idempotency-key` header. We need to revert or fix this immediately."
+  }
+]

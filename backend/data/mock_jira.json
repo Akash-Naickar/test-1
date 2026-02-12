@@ -1,0 +1,16 @@
+[
+    {
+        "id": "PAY-1024",
+        "title": "[URGENT] High Rate of Duplicate charges on Gateway V2 Migration",
+        "description": "Customer support is flooded with refund requests. Logs show multiple successful charges for single order IDs. Suspect the new retry logic in `payment_processor.py` is retrying on timeouts where the upstream gateway actually succeeded. ACTION: Implement Idempotency Keys immediately.",
+        "priority": "Critical",
+        "status": "In Progress"
+    },
+    {
+        "id": "PAY-1025",
+        "title": "Cleanup legacy V1 gateway code",
+        "description": "Now that V2 is active, remove the old adapter.",
+        "priority": "Low",
+        "status": "Open"
+    }
+]

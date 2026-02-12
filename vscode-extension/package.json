@@ -1,0 +1,69 @@
+{
+    "name": "contextsync",
+    "displayName": "ContextSync",
+    "description": "Explains the human intent behind code using RAG.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:contextsync.explain",
+        "onCommand:contextsync.showContext",
+        "onView:contextSyncView"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "contextsync.explain",
+                "title": "ContextSync: Explain Intent"
+            },
+            {
+                "command": "contextsync.showContext",
+                "title": "ContextSync: Show Context Cards"
+            }
+        ],
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "context-sync-sidebar",
+                    "title": "ContextSync",
+                    "icon": "resources/icon.svg"
+                }
+            ]
+        },
+        "views": {
+            "context-sync-sidebar": [
+                {
+                    "type": "webview",
+                    "id": "contextSyncView",
+                    "name": "Context Explanation"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.80.0",
+        "@types/glob": "^8.1.0",
+        "@types/mocha": "^10.0.1",
+        "@types/node": "20.2.5",
+        "@typescript-eslint/eslint-plugin": "^5.59.8",
+        "@typescript-eslint/parser": "^5.59.8",
+        "eslint": "^8.41.0",
+        "glob": "^8.1.0",
+        "mocha": "^10.2.0",
+        "typescript": "^5.1.3",
+        "@vscode/test-electron": "^2.3.2"
+    }
+}
