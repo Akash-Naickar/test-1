@@ -22,7 +22,7 @@ class PaymentProcessor:
         
         Context: Updated for high-availability requirements.
         Retries on timeout to reduce customer friction during
-        spikes (e.g. Black Friday).
+        spikes
         """
         retry_count = 0
         
@@ -52,7 +52,7 @@ class PaymentProcessor:
         
         return False
 
-# Example usage
+
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     gateway = PaymentGateway()
